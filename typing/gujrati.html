@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .alphabet{
+            
+            border: 2px solid black;
+        }
+        .letter{  
+            margin-left: 20px;
+            font-size: 70px;
+            border: 2px solid black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="data">અહીં તમને ઘણા બધા ઉદાહરણ આપેલા છે, જેમાંથી તમે ઇન્સ્પિરેશન લઇ અને તમારો પોતાનો એક સુંદર કોઈ પણ વિષે નો પેરેગ્રાફ લખી શકો છો અથવા નોલેજ મેળવી શકો છો. આ સાથે સાથે આપણે અહીં એ પણ માહિતી મેળવશું કે કોઈ પણ ભાષા માં નિબંધ કે પેરેગ્રાફ કઈ રીતે લખવા, આ માહિતી અને ટિપ્સ તમારા માટે ખુબ ઉપીયોગી સાબિત થશે.</div> <!-- gujarati ma hase  -->  
+    <input type="text" id="read">
+    <input type="text" id="write">
+    <div class="alphabet">
+        <span id="q" class="letter">Q</span><span id="w" class="letter">W</span><span id="e" class="letter">E</span><span id="r" class="letter">R</span><span id="t"class="letter">T</span><span id="y" class="letter">Y</span><span id="u" class="letter">U</span> <span id="i" class="letter">I</span> <span id="o" class="letter">O</span> <span id="p" class="letter">P</span>
+        <br/>
+        <span id="a" class="letter">A</span><span id="s" class="letter">S</span><span id="d" class="letter">D</span><span id="f" class="letter">F</span><span id="g"class="letter">G</span><span id="h" class="letter">H</span><span id="j" class="letter">J</span> <span id="k" class="letter">K</span> <span id="l" class="letter">L</span> 
+        <br/>
+        <span id="shift" class="letter">SHIFT</span><span id="z" class="letter">Z</span><span id="x" class="letter">X</span><span id="c" class="letter">C</span><span id="v" class="letter">V</span><span id="b"class="letter">B</span><span id="n" class="letter">N</span><span id="m" class="letter">M</span> 
+        <span id="space" class="letter">SPACE</span>
+        </div>
+    <script> 
+    let read=document.getElementById('read')
+    let write=document.getElementById('write')
+    let display=document.getElementById('display')
+    let data=document.getElementById('data').innerHTML
+        str='aba';
+        let map =new Map([['ો','a'],['વ','b'],['મ','c'],['્','d'],['ા','e'],['િ','f'],['ુ','g'],['પ','h'],['ગ','i'],
+        ['ર','j'],['ક','k'],['ત','l'],['સ','m'],['લ','n'],['દ','o'],["જ",'p'],['ૌ','q'],['ી','r'],['ે','s'],['ૂ','t'],
+        ['હ','u'],['ન','v'],['ૈ','w'],['ં','x'],['બ','y'],['','z'],['ઓ','A'],['','B'],['ણ','C'],['અ','D'],['આ','E'],
+        ['ઇ','F'],['ઉ','G'],['ફ','H'],['ઘ','I'],['','J'],['ખ','K'],['થ','L'],['શ','M'],['ળ','N'],['ધ','O'],['ઝ','P'],
+        ['ઔ','Q'],['ઈ','R'],['એ','S'],['ઊ','T'],['ઙ','U'],['','V'],['ઐ','W'],['ઁ','X'],['ભ','Y'],['','z'],['ઍ','!'],
+        ['ૅ','@'],['્ર','#'],['ર્','$'],['જ્ઞ','%'],['ત્ર','^'],['ક્ષ','&'],['શ્ર','*'],['ઃ','_'],['ઋ','+'],['ૃ','='],['ઢ','{'],
+        ['ઞ','}'],['ઢ','['],['઼',']'],['ચ',';'],["ટ","'"],['છ',':'],['ઠ','"'],['ષ','<'],['।','>'],['ય','/'],['ઑ','|'],[' ',' ']]);
+
+        let map2 =new Map([['a','ો'],['b','વ'],['c','મ'],['d','્'],['e','ા'],['f','િ'],['g','ુ'],['h','પ'],['i','ગ'],
+        ['j','ર'],['k','ક'],['l','ત'],['m','સ'],['n','લ'],['o','દ'],["p",'જ'],['q','ૌ'],['r','ી'],['s','ે'],['t','ૂ'],
+        ['u','હ'],['v','ન'],['w','ૈ'],['x','ં'],['y','બ'],['','z'],['A','ઓ'],['','B'],['C','ણ'],['D','અ'],['E','આ'],
+        ['F','ઇ'],['G','ઉ'],['H','ફ'],['I','ઘ'],['','J'],['K','ખ'],['L','થ'],['M','શ'],['N','ળ'],['O','ધ'],['P','ઝ'],
+        ['Q','ઔ'],['R','ઈ'],['S','એ'],['T','ઊ'],['U','ઙ'],['','V'],['W','ઐ'],['X','ઁ'],['Y','ભ'],['','z'],['!','ઍ'],
+        ['@','ૅ'],['#','્ર'],['$','ર્'],['%','જ્ઞ'],['^','ત્ર'],['&','ક્ષ'],['*','શ્ર'],['_','ઃ'],['+','ઋ'],['=','ૃ'],['{','ઢ'],
+        ['}','ઞ'],['[','ઢ'],[']','઼'],[';','ચ'],["'","ટ"],[':','છ'],['"','ઠ'],['<','ષ'],['>','।'],['/','ય'],['|','ઑ'],[' ',' ']]);
+        arr=[]
+        console.log(map2.get('"'));
+        count=0;
+        let a=new Map([['1','a'],['2','b'],['3','c'],['4','d'],['5','e'],['6','f'],['7','g']])//key =gujarati value =english 
+        let b=new Map([['a','1'],['b','2'],['c','3'],['d','4'],['e','5'],['f','6'],['g','7']])//key =english value =gujarati
+        // document.getElementById(map.get(data[count])).style.background='red'
+        write.value=(map.get(data[count]))
+        read.addEventListener('input',(e)=>{ 
+            // count=document.getElementById('read').value   
+            console.log(count);
+            if(e.data==null){
+                count-=1;
+                arr.pop()
+                read.value=arr.join('')
+            }
+            else{
+                arr.push(map2.get(e.data))
+                read.value=arr.join('')
+                // document.getElementById(map.get(data[count+1])).style.background='red'
+                count++; 
+            }
+            if (arr.join('')==data) {
+                alert('done') 
+            }
+            write.value=(map.get(data[count]));
+            console.log(arr)
+            // console.log(a.entries().toString());
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: "hindi";
+            src: url('./k010.TTF');
+        }
+        @font-face {
+            font-family: 'gujrati';
+            src: url('./Avantika.ttf');
+        }
+        @font-face {
+            font-family: 'raavi';
+            src: url('./WebAkharSlim.ttf');
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color:green;
+        }
+        #data{
+            font-family: hindi;
+        }
+        .letter{  
+            margin-left: 20px;
+            font-size: 70px;
+            border: 2px solid black;
+        }
+        .alphabet{
+            
+            border: 2px solid black;
+        }
+        #a{
+            margin-left: 35px;
+        }
+        #z{
+            margin-left: 30px;
+        }
+        #shift{
+            font-size: 30px;
+        }
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="data">
+
+    </div>
+    <input type="text" id="textBox"z>
+    <button onclick="demo('hindi')">hindi</button>
+    <button onclick="demo('gujrati')">gujrati</button>
+    <button onclick="demo('raavi')">punjabi(raavi)</button>
+    <br/>
+    <div class="alphabet">
+    <span id="q" class="letter">Q</span><span id="w" class="letter">W</span><span id="e" class="letter">E</span><span id="r" class="letter">R</span><span id="t"class="letter">T</span><span id="y" class="letter">Y</span><span id="u" class="letter">U</span> <span id="i" class="letter">I</span> <span id="o" class="letter">O</span> <span id="p" class="letter">P</span>
+    <br/>
+    <span id="a" class="letter">A</span><span id="s" class="letter">S</span><span id="d" class="letter">D</span><span id="f" class="letter">F</span><span id="g"class="letter">G</span><span id="h" class="letter">H</span><span id="j" class="letter">J</span> <span id="k" class="letter">K</span> <span id="l" class="letter">L</span> 
+    <br/>
+    <span id="shift" class="letter">SHIFT</span><span id="z" class="letter">Z</span><span id="x" class="letter">X</span><span id="c" class="letter">C</span><span id="v" class="letter">V</span><span id="b"class="letter">B</span><span id="n" class="letter">N</span><span id="m" class="letter">M</span> 
+    <span id="space" class="letter">SPACE</span>
+    </div>
+    <script>
+        const data=document.getElementById('data');
+        const text=document.getElementById('textBox');
+        // hindi (namaste)="ueLrs vki dSls gSa";
+        const str="ml mdjr Dken" //punjabi (hello)
+        for(i=0;i<str.length;i++){
+            data.innerHTML+="<span id="+i+">"+str[i]+"</span>"
+            console.log(str.charCodeAt(i));
+        }
+        document.getElementById(str[0]).style.background='red'
+        text.addEventListener('input',(e)=>{
+        const question=document.getElementById('textBox').value;
+            // alert(document.getElementById('textBox').value)
+            // console.log("question",question)  
+            const arr=[];
+            console.log(question.length)
+            for(j=0;j<question.length;j++){
+                arr.push(question[j]);
+                if(str[j]==arr[j]){
+                    // console.log("yes");
+                    const demo=document.getElementById(j);
+                    demo.style.color='green'
+                }
+                else{
+                    // console.log("no");
+                    const demo=document.getElementById(j);
+                    demo.style.color='red';
+                    
+                }
+                if(str==arr.join("")){
+                    alert("done")
+                }
+                console.log(arr);
+                console.log(j)
+            }
+            console.log(e);
+            if(str[j].charCodeAt()==32){
+                document.getElementById('space').style.background='red'
+                document.getElementById('shift').style.background='white'
+                document.getElementById(str[j-1]).style.background='white'
+                document.getElementById(str[j+1]).style.background='white'
+                console.log('if');
+            }
+            else if(str[j].charCodeAt()>=65&&str[j].charCodeAt()<=90){
+                document.getElementById('shift').style.background='red'
+                document.getElementById('space').style.background='white'
+                document.getElementById(str[j].toLowerCase()).style.background='red'
+                document.getElementById(str[j-1]).style.background='white'
+                document.getElementById(str[j+1]).style.background='white'
+                console.log(' else if');
+            }
+            else{
+                document.getElementById(str[j]).style.background='red'//bug che
+                document.getElementById('space').style.background='white'
+                document.getElementById('shift').style.background='white'
+                document.getElementById(str[j-1].toLowerCase()).style.background='white'//aa pun bug che
+                document.getElementById(str[j+1].toLowerCase()).style.background='white'
+                // document.getElementById(str[j-1]).style.background='white'
+                console.log('else');
+            }
+            
+            
+            // console.log(arr.join(""),str)
+            // for(d=0;d<q.length;d++){}
+        });
+        
+
+        function demo(e){
+            if(e=="hindi"){
+                // str="ueLrs vki dSls gSa";
+                document.getElementById('textBox').style.fontFamily="hindi"
+                document.getElementById('data').style.fontFamily="hindi"
+            }
+            else if(e=="gujrati"){
+                document.getElementById('textBox').style.fontFamily="gujrati"
+                document.getElementById('data').style.fontFamily="gujrati"
+            }
+            else if(e=="raavi"){
+                document.getElementById('textBox').style.fontFamily="raavi"
+                document.getElementById('data').style.fontFamily="raavi"
+            }
+        }
+        console.log(data.innerHTML);
+    </script>
+</body>
+</html>

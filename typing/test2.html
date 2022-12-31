@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="input">
+    <button onclick="convert()"> click to change</button>
+    <input type="text" name="" id="answer">
+    <script>
+        let map =new Map([['ੋ','a'],['ਵ','b'],['ਮ','c'],['੍','d'],['ਾ','e'],['ਿ','f'],['ੁ','g'],['ਪ','h'],['ਗ','i'],
+        ['ਰ','j'],['ਕ','k'],['ਤ','l'],['ਸ','m'],['ਲ','n'],['ਦ','o'],['ਜ','p'],['ੌ','q'],['ੀ','r'],['ੇ','s'],['ੂ','t'],
+        ['ਹ','u'],['ਨ','v'],['ੈ','w'],['ੰ','x'],['ਬ','y'],['z','z'],['ਓ','A'],['ੲ','B'],['ਣ','C'],['ਅ','D'],['ਆ','E'],
+        ['ਇ','F'],['ਉ','G'],['ਫ','H'],['ਘ','I'],['ੜ','J'],['ਖ','K'],['ਥ','L'],['ਸ਼','M'],['ਲ਼','N'],['ਧ','O'],['ਝ','P'],
+        ['ਔ','Q'],['ਈ','R'],['ਏ','S'],['ਊ','T'],['ਙ','U'],['ਨ','V'],['ਐ','W'],['ਂ','X'],['ਭ','Y'],['ਁ','z'],[' ',' ']]);
+        console.log(map.get('ੀ'));
+        function convert(){
+            st='';
+            raw=document.getElementById('input').value;
+            // console.log(st.charCodeAt(0));
+            // console.log(map.get(' ੀ'));
+            for(i=0;i<raw.length;i++){
+                st+=map.get(raw[i]);
+                // console.log(raw[i]);
+                console.log(map.get(raw[i]),raw[i]);
+            }
+            document.getElementById('answer').value=st;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="input">
+    <button onclick="convert()"> click to change</button>
+    <input type="text" name="" id="answer">
+    <script>
+        //small a-z in punjabi ੋ ਵ ਮ ੍ ਾ ਿ ੁ ਪ ਗ ਰ ਕ ਤ ਸ ਲ ਦ ਜ ੌ ੀ ੇ ੂ ਹ ਨ ੈ ੰ ਬ  
+        //capital A-Z in punjabi ਆ ਬ ਸੀ ਦ ਏ ਫ ਗ ਹ ਈ ਜ ਕ ਲ ਮ ਨ ਓ ਪ ਕ਼ ਰ ਸ ਤ ਉ ਵੀ ਵ ਸ ਯ ਜ਼  
+       var str='ભ'+'ે';
+       demo='';
+    //    console.log(demo.charCodeAt(0));
+       a=['ੋ','ਵ','ਮ','੍','ਾ','ਿ',' ੁ','ਪ','ਗ','ਰ','ਕ','ਤ ','ਸ ','ਲ','ਦ','ਜ',' ੌ',' ੀ',' ੇ',' ੂ','ਹ','ਨ',' ੈ',' ੰ','ਬ','Z']
+       b=['ਓ','ੲ','ਣ','ਅ','ਆ','ਇ','ਉ','ਫ','ਘ','ੜ','ਖ','ਥ','ਸ਼ ','ਲ਼','ਧ','ਝ','ਔ','ਈ','ਏ','ਊ','ਙ','ਨ','ਐ',' ਂ','ਭ',' ਁ']
+        for (let i = 0; i < a.length; i++) {
+            demo += a[i];
+        }
+        for (let j = 0; j < 66; j++) {
+            console.log(demo.charCodeAt(j),j);
+        }
+       function convert(){
+            st='';
+            raw=document.getElementById('input').value;
+            // console.log(st.charCodeAt(0));
+            for(i=0;i<raw.length;i++){
+              if(raw.charCodeAt(i)>=97&& raw.charCodeAt(i)<=122){
+                  st+=a[raw.charCodeAt(i)-97].trim();
+              }
+              else if(raw.charCodeAt(i)>=65&& raw.charCodeAt(i)<=90){
+                st+=b[raw.charCodeAt(i) -65].trim();
+              }
+            }
+            document.getElementById('answer').value=st;
+        }
+    </script>
+</body>
+</html>
